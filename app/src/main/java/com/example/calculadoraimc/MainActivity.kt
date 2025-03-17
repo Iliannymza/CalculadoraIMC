@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         lateinit var heigtEditText: EditText
         lateinit var calculateButton: Button
 
+
+
         lateinit var resultadoTextView: TextView
 
 
