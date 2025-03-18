@@ -8,24 +8,30 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.slider.Slider
 import org.w3c.dom.Text
 import kotlin.math.log
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
+
+    //Weigth
+    lateinit var removeWeightButton: Button
+    lateinit var addWeightButton: Button
+    lateinit var weightTextView: TextView
+
+    //Heigth
+    lateinit var heightSlider: Slider
+    lateinit var heightTextView: TextView
+
+    //Result
+    lateinit var  calculateButton: Button
+    lateinit var resultTextView: TextView
+
+    var weigth = 74.0f
+    var heigth = 170.0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Declaramos las variables
-
-        lateinit var weightEditText: EditText
-        lateinit var heigtEditText: EditText
-        lateinit var calculateButton: Button
-
-
-
-        lateinit var resultadoTextView: TextView
-
-
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -35,28 +41,34 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Le pedimos que la busque en el activity main
-
-        weightEditText = findViewById(R.id.weightEditText )
-        heigtEditText = findViewById(R.id.heigtEditText)
+        removeWeightButton = findViewById(R.id.removeWeightButton )
+        addWeightButton = findViewById(R.id.addWeightButton)
+        weightTextView = findViewById(R.id.weightTextView)
+        heightSlider = findViewById(R.id.heightSlider)
+        heightTextView = findViewById(R.id.heightTextView)
         calculateButton = findViewById(R.id.calculateButton)
-        resultadoTextView = findViewById(R.id.resultadoTextView)
+        resultTextView = findViewById(R.id.resultTextView)
 
 
-        calculateButton.setOnClickListener {
-
-            val peso = weightEditText.text.toString().toFloat()
-            val altura = heigtEditText.text.toString().toFloat()
-
-
-            // formula para calcular imc 
-           val resultado =  peso / (altura / 100).pow(2)
-
-            resultadoTextView.text = String.format("%.2f", resultado)
-
-
+        removeWeightButton.setOnClickListener {
+            weigth --
+            weightTextView.text = "${weigth.toInt()} kg"
+        }
+        addWeightButton.setOnClickListener {
+            weigth ++
+            weightTextView.text = "${weigth.toInt()} kg"
         }
 
+        heightSlider.addOnChangeListener { slider, value, fromUser ->
+            heigth = value
+            heightTextView.text = "${value.toInt()} cm"
+        }
+
+        calculateButton.setOnClickListener {
+            val result = weigth / (heigth / 100).pow(2)
+
+            resultTextView.text = String.format("%.2f" , result)
+        }
     }
 
 }
