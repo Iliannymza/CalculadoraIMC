@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CalculadoraIMC</string>
+
+    <string name="label_weight">CalculadoraIMC</string>
+    <string name="label_height">CalculadoraIMC</string>
+
+    <string name="bmi_underweight">CalculadoraIMC</string>
+    <string name="bmi_normalweight">CalculadoraIMC</string>
+    <string name="app_name">CalculadoraIMC</string>
+    <string name="app_name">CalculadoraIMC</string>
+    <string name="app_name">CalculadoraIMC</string>
+
+</resources>

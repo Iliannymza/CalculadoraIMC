@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CalculadoraIMC</string>
+
+    <string name="label_weight">CalculadoraIMC</string>
+    <string name="label_height">CalculadoraIMC</string>
+
+    <string name="bmi_underweight">underweight</string>
+    <string name="bmi_normalweight">normalweight</string>
+    <string name="bmi_overweight">overweight</string>
+    <string name="bmi_obecity">obecity</string>
+    <string name="bmi_extreme_obecity">extreme obecity</string>
+
+
+    <string name="button_calculate"></string>
+
+
 </resources>
